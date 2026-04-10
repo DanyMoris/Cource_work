@@ -56,19 +56,19 @@ void FleetManager::printSeparator(std::ostream& os) {
 
 void FleetManager::printHeader(std::ostream& os) {
     printSeparator(os);
-    os << "|" << std::left << std::setw(W_INDEX) << "π"
-        << "| " << std::left << std::setw(W_TYPE) << "“ËÔ"
-        << "| " << std::left << std::setw(W_YEAR) << "√Ó‰"
-        << "| " << std::left << std::setw(W_SEATS) << "ÃÂÒÚ"
-        << "| " << std::left << std::setw(W_PAYLOAD) << "√ÛÁ(Ú)"
-        << "| " << std::left << std::setw(W_INSTR) << "»ÌÒÚÛÍÚÓ" << "|\n";
+    os << "|" << std::left << std::setw(W_INDEX) << "‚Ññ"
+        << "| " << std::left << std::setw(W_TYPE) << "–¢–∏–ø"
+        << "| " << std::left << std::setw(W_YEAR) << "–ì–æ–¥"
+        << "| " << std::left << std::setw(W_SEATS) << "–ú–µ—Å—Ç"
+        << "| " << std::left << std::setw(W_PAYLOAD) << "–ì—Ä—É–∑(—Ç)"
+        << "| " << std::left << std::setw(W_INSTR) << "–ò–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä" << "|\n";
     printSeparator(os);
 }
 
 
 void FleetManager::printAnyList(const std::vector<Airplane>& list, std::string title) {
     if (list.empty()) {
-        std::cout << "\n[" << title << "]: —ÔËÒÓÍ ÔÛÒÚ." << std::endl;
+        std::cout << "\n[" << title << "]: –°–ø–∏—Å–æ–∫ –ø—É—Å—Ç." << std::endl;
         return;
     }
     std::cout << "\n=== " << title << " ===" << std::endl;
@@ -80,19 +80,19 @@ void FleetManager::printAnyList(const std::vector<Airplane>& list, std::string t
 }
 
 void FleetManager::showFleet() {
-    printAnyList(fleet, "¿¬»¿‘ÀŒ“"s);
+    printAnyList(fleet, "–ê–í–ò–ê–§–õ–û–¢"s);
 }
 
 void FleetManager::loadFromFile() {
 
 
     std::string filename;
-    std::cout << "¬‚Â‰ËÚÂ ËÏˇ Ù‡ÈÎ‡ (Ì‡ÔËÏÂ, planes.txt): ";
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞ (–Ω–∞–ø—Ä–∏–º–µ—Ä, planes.txt): ";
     std::cin >> filename;
 
     std::ifstream fin(filename.c_str());
     if (!fin.is_open()) {
-        std::cout << "Œ¯Ë·Í‡: ÕÂ Û‰‡ÎÓÒ¸ ÓÚÍ˚Ú¸ Ù‡ÈÎ!" << std::endl;
+        std::cout << "–û—à–∏–±–∫–∞: –ù–µ —É–¥–∞–ª–æ—Å—å –æ—Ç–∫—Ä—ã—Ç—å —Ñ–∞–π–ª!" << std::endl;
         return;
     }
 
@@ -102,7 +102,7 @@ void FleetManager::loadFromFile() {
 
     while (getline(fin, line)) {
         // Skip empty lines or headers
-        if (line.empty() || line.find("---") != std::string::npos || line.find("“ËÔ") != std::string::npos)
+        if (line.empty() || line.find("---") != std::string::npos || line.find("–¢–∏–ø") != std::string::npos)
             continue;
 
         std::vector<std::string> tokens;
@@ -139,11 +139,11 @@ void FleetManager::loadFromFile() {
             loadedCount++;
         }
         catch (const std::exception& e) {
-            std::cout << "Œ¯Ë·Í‡ Ô‡ÒËÌ„‡ ÒÚÓÍË: " << line << "\nDetails: " << e.what() << std::endl;
+            std::cout << "–û—à–∏–±–∫–∞ –ø–∞—Ä—Å–∏–Ω–≥–∞ —Å—Ç—Ä–æ–∫–∏: " << line << "\nDetails: " << e.what() << std::endl;
         }
     }
     fin.close();
-    std::cout << "”ÒÔÂ¯ÌÓ Á‡„ÛÊÂÌÓ Á‡ÔËÒÂÈ: " << loadedCount << std::endl;
+    std::cout << "–£—Å–ø–µ—à–Ω–æ –∑–∞–≥—Ä—É–∂–µ–Ω–æ –∑–∞–ø–∏—Å–µ–π: " << loadedCount << std::endl;
 }
 
 void FleetManager::addRecord() {
@@ -154,53 +154,53 @@ void FleetManager::addRecord() {
 
     std::cin.ignore(10000, '\n');
 
-    std::cout << "¬‚Â‰ËÚÂ ÚËÔ Ò‡ÏÓÎÂÚ‡: "; std:getline(std::cin, tempS); p.setType(tempS);
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ —Ç–∏–ø —Å–∞–º–æ–ª–µ—Ç–∞: "; std:getline(std::cin, tempS); p.setType(tempS);
 
-    std::cout << "¬‚Â‰ËÚÂ „Ó‰ ‚˚ÔÛÒÍ‡: ";
-    while (!(std::cin >> tempI)) { std::cout << "Œ¯Ë·Í‡! ¬‚Â‰ËÚÂ ˜ËÒÎÓ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –≥–æ–¥ –≤—ã–ø—É—Å–∫–∞: ";
+    while (!(std::cin >> tempI)) { std::cout << "–û—à–∏–±–∫–∞! –í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
     p.setYear(tempI);
 
-    std::cout << "¬‚Â‰ËÚÂ ÍÓÎ-‚Ó ÍÂÒÂÎ: ";
-    while (!(std::cin >> tempI)) { std::cout << "Œ¯Ë·Í‡! ¬‚Â‰ËÚÂ ˜ËÒÎÓ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –∫–æ–ª-–≤–æ –∫—Ä–µ—Å–µ–ª: ";
+    while (!(std::cin >> tempI)) { std::cout << "–û—à–∏–±–∫–∞! –í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
     p.setSeats(tempI);
 
-    std::cout << "¬‚Â‰ËÚÂ „ÛÁÓÔÓ‰˙ÂÏÌÓÒÚ¸: ";
-    while (!(std::cin >> tempD)) { std::cout << "Œ¯Ë·Í‡! ¬‚Â‰ËÚÂ ˜ËÒÎÓ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –≥—Ä—É–∑–æ–ø–æ–¥—ä–µ–º–Ω–æ—Å—Ç—å: ";
+    while (!(std::cin >> tempD)) { std::cout << "–û—à–∏–±–∫–∞! –í–≤–µ–¥–∏—Ç–µ —á–∏—Å–ª–æ: "; std::cin.clear(); std::cin.ignore(10000, '\n'); }
     p.setPayload(tempD);
 
-    std::cout << "¬‚Â‰ËÚÂ Ù‡ÏËÎË˛ ËÌÒÚÛÍÚÓ‡: "; std::getline(std::cin >> std::ws, tempS); p.setInstructor(tempS);
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ —Ñ–∞–º–∏–ª–∏—é –∏–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä–∞: "; std::getline(std::cin >> std::ws, tempS); p.setInstructor(tempS);
 
     fleet.push_back(p);
-    std::cout << "«‡ÔËÒ¸ ‰Ó·‡‚ÎÂÌ‡!" << std::endl;
+    std::cout << "–ó–∞–ø–∏—Å—å –¥–æ–±–∞–≤–ª–µ–Ω–∞!" << std::endl;
 }
 
 void FleetManager::deleteRecord() {
-    if (fleet.empty()) { std::cout << "¡‡Á‡ ÔÛÒÚ‡." << std::endl; return; }
+    if (fleet.empty()) { std::cout << "–ë–∞–∑–∞ –ø—É—Å—Ç–∞." << std::endl; return; }
     showFleet();
 
     int idx;
-    std::cout << "¬‚Â‰ËÚÂ ÌÓÏÂ Á‡ÔËÒË ‰Îˇ Û‰‡ÎÂÌËˇ: ";
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –∑–∞–ø–∏—Å–∏ –¥–ª—è —É–¥–∞–ª–µ–Ω–∏—è: ";
     std::cin >> idx;
 
     if (idx < 1 || idx >(int)fleet.size()) {
-        std::cout << "ÕÂ‚ÂÌ˚È ÌÓÏÂ!" << std::endl;
+        std::cout << "–ù–µ–≤–µ—Ä–Ω—ã–π –Ω–æ–º–µ—Ä!" << std::endl;
         return;
     }
 
     fleet.erase(fleet.begin() + idx - 1);
-    std::cout << "«‡ÔËÒ¸ Û‰‡ÎÂÌ‡." << std::endl;
+    std::cout << "–ó–∞–ø–∏—Å—å —É–¥–∞–ª–µ–Ω–∞." << std::endl;
 }
 
 void FleetManager::editRecord() {
-    if (fleet.empty()) { std::cout << "¡‡Á‡ ÔÛÒÚ‡." << std::endl; return; }
+    if (fleet.empty()) { std::cout << "–ë–∞–∑–∞ –ø—É—Å—Ç–∞." << std::endl; return; }
     showFleet();
 
     int idx;
-    std::cout << "¬‚Â‰ËÚÂ ÌÓÏÂ Á‡ÔËÒË ‰Îˇ Â‰‡ÍÚËÓ‚‡ÌËˇ: ";
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –Ω–æ–º–µ—Ä –∑–∞–ø–∏—Å–∏ –¥–ª—è —Ä–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏—è: ";
     std::cin >> idx;
 
     if (idx < 1 || idx >(int)fleet.size()) {
-        std::cout << "ÕÂ‚ÂÌ˚È ÌÓÏÂ!" << std::endl;
+        std::cout << "–ù–µ–≤–µ—Ä–Ω—ã–π –Ω–æ–º–µ—Ä!" << std::endl;
         return;
     }
 
@@ -208,24 +208,24 @@ void FleetManager::editRecord() {
     std::string buf;
     std::cin.ignore(10000, '\n');
 
-    std::cout << "--- –Â‰‡ÍÚËÓ‚‡ÌËÂ (‚‚Â‰ËÚÂ '-', ˜ÚÓ·˚ ÓÒÚ‡‚ËÚ¸ ÒÚ‡ÓÂ) ---\n";
+    std::cout << "--- –†–µ–¥–∞–∫—Ç–∏—Ä–æ–≤–∞–Ω–∏–µ (–≤–≤–µ–¥–∏—Ç–µ '-', —á—Ç–æ–±—ã –æ—Å—Ç–∞–≤–∏—Ç—å —Å—Ç–∞—Ä–æ–µ) ---\n";
 
-    std::cout << "“ËÔ [" << p.getType() << "]: "; std::getline(std::cin, buf);
+    std::cout << "–¢–∏–ø [" << p.getType() << "]: "; std::getline(std::cin, buf);
     if (buf != "-") { p.setType(buf); }
 
-    std::cout << "√Ó‰ [" << p.getYear() << "]: "; std::cin >> buf;
+    std::cout << "–ì–æ–¥ [" << p.getYear() << "]: "; std::cin >> buf;
     if (buf != "-" && !buf.empty()) { p.setYear(stoi(buf)); }
 
-    std::cout << " ÂÒÎ‡ [" << p.getSeats() << "]: "; std::cin >> buf;
+    std::cout << "–ö—Ä–µ—Å–ª–∞ [" << p.getSeats() << "]: "; std::cin >> buf;
     if (buf != "-" && !buf.empty()) { p.setSeats(stoi(buf)); }
 
-    std::cout << "√ÛÁ [" << p.getPayload() << "]: "; std::cin >> buf;
+    std::cout << "–ì—Ä—É–∑ [" << p.getPayload() << "]: "; std::cin >> buf;
     if (buf != "-" && !buf.empty()) { p.setPayload(stod(buf)); }
 
-    std::cout << "»ÌÒÚÛÍÚÓ [" << p.getInstructor() << "]: "; std::getline(std::cin >> std::ws, buf);
+    std::cout << "–ò–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä [" << p.getInstructor() << "]: "; std::getline(std::cin >> std::ws, buf);
     if (buf != "-") { p.setInstructor(buf); }
 
-    std::cout << "«‡ÔËÒ¸ Ó·ÌÓ‚ÎÂÌ‡!" << std::endl;
+    std::cout << "–ó–∞–ø–∏—Å—å –æ–±–Ω–æ–≤–ª–µ–Ω–∞!" << std::endl;
 }
 
 void FleetManager::sortByPayload() {
@@ -233,7 +233,7 @@ void FleetManager::sortByPayload() {
     sort(fleet.begin(), fleet.end(), [](const Airplane& a, const Airplane& b) {
         return a.getPayload() < b.getPayload();
         });
-    std::cout << "ŒÚÒÓÚËÓ‚‡ÌÓ ÔÓ „ÛÁÓÔÓ‰˙ÂÏÌÓÒÚË." << std::endl;
+    std::cout << "–û—Ç—Å–æ—Ä—Ç–∏—Ä–æ–≤–∞–Ω–æ –ø–æ –≥—Ä—É–∑–æ–ø–æ–¥—ä–µ–º–Ω–æ—Å—Ç–∏." << std::endl;
     showFleet();
 }
 
@@ -242,7 +242,7 @@ void FleetManager::sortByType() {
     sort(fleet.begin(), fleet.end(), [](const Airplane& a, const Airplane& b) {
         return a.getType() < b.getType();
         });
-    std::cout << "ŒÚÒÓÚËÓ‚‡ÌÓ ÔÓ ÚËÔ Ò‡ÏÓÎÂÚ‡." << std::endl;
+    std::cout << "–û—Ç—Å–æ—Ä—Ç–∏—Ä–æ–≤–∞–Ω–æ –ø–æ —Ç–∏–ø —Å–∞–º–æ–ª–µ—Ç–∞." << std::endl;
     showFleet();
 }
 
@@ -254,19 +254,19 @@ void FleetManager::sortStructural() {
         }
         return a.getInstructor() < b.getInstructor();
         });
-    std::cout << "¬˚ÔÓÎÌÂÌ‡ ÒÚÛÍÚÛÌ‡ˇ ÒÓÚËÓ‚Í‡ (“ËÔ + »ÌÒÚÛÍÚÓ)." << std::endl;
+    std::cout << "–í—ã–ø–æ–ª–Ω–µ–Ω–∞ —Å—Ç—Ä—É–∫—Ç—É—Ä–Ω–∞—è —Å–æ—Ä—Ç–∏—Ä–æ–≤–∫–∞ (–¢–∏–ø + –ò–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä)." << std::endl;
     showFleet();
 }
 
 void FleetManager::saveToFile() {
-    if (fleet.empty()) { std::cout << "ÕÂÚ ‰‡ÌÌ˚ı ‰Îˇ ÒÓı‡ÌÂÌËˇ." << std::endl; return; }
+    if (fleet.empty()) { std::cout << "–ù–µ—Ç –¥–∞–Ω–Ω—ã—Ö –¥–ª—è —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∏—è." << std::endl; return; }
 
     std::string filename;
-    std::cout << "¬‚Â‰ËÚÂ ËÏˇ Ù‡ÈÎ‡ ‰Îˇ ÒÓı‡ÌÂÌËˇ: ";
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞ –¥–ª—è —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∏—è: ";
     std::cin >> filename;
 
     std::ofstream fout(filename.c_str());
-    if (!fout.is_open()) { std::cout << "Œ¯Ë·Í‡ Á‡ÔËÒË!" << std::endl; return; }
+    if (!fout.is_open()) { std::cout << "–û—à–∏–±–∫–∞ –∑–∞–ø–∏—Å–∏!" << std::endl; return; }
 
     printHeader(fout);
     for (size_t i = 0; i < fleet.size(); ++i) {
@@ -274,25 +274,25 @@ void FleetManager::saveToFile() {
     }
     printSeparator(fout);
     fout.close();
-    std::cout << "¡‡Á‡ ÛÒÔÂ¯ÌÓ ÒÓı‡ÌÂÌ‡ ‚ " << filename << std::endl;
+    std::cout << "–ë–∞–∑–∞ —É—Å–ø–µ—à–Ω–æ —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∞ –≤ " << filename << std::endl;
 }
 
 void FleetManager::search() {
-    if (fleet.empty()) { std::cout << "¡‡Á‡ ÔÛÒÚ‡." << std::endl; return; }
+    if (fleet.empty()) { std::cout << "–ë–∞–∑–∞ –ø—É—Å—Ç–∞." << std::endl; return; }
 
     searchList.clear();
     int mode;
-    std::cout << "\n--- –≈∆»Ã œŒ»— ¿ ---\n";
-    std::cout << "1. œÓ Ó‰ÌÓÏÛ ÔËÁÌ‚ÍÛ(‘‡ÏËÎËˇ ËÌÒÚÛÍÚÓ‡)\n";
-    std::cout << "2. œÓ ‰‚ÛÏ ÔËÁÌ‡Í‡Ï (‘‡ÏËÎËˇ Ë “ËÔ Ò‡ÏÓÎ∏Ú‡)\n";
-    std::cout << "¬˚·Ó: ";
+    std::cout << "\n--- –†–ï–ñ–ò–ú –ü–û–ò–°–ö–ê ---\n";
+    std::cout << "1. –ü–æ –æ–¥–Ω–æ–º—É –ø—Ä–∏–∑–Ω–≤–∫—É(–§–∞–º–∏–ª–∏—è –∏–Ω—Å—Ç—Ä—É–∫—Ç–æ—Ä–∞)\n";
+    std::cout << "2. –ü–æ –¥–≤—É–º –ø—Ä–∏–∑–Ω–∞–∫–∞–º (–§–∞–º–∏–ª–∏—è –∏ –¢–∏–ø —Å–∞–º–æ–ª—ë—Ç–∞)\n";
+    std::cout << "–í—ã–±–æ—Ä: ";
     std::cin >> mode;
 
     std::string instr, type;
-    std::cout << "¬‚Â‰ËÚÂ Ù‡ÏËÎË˛(ËÎË ˜‡ÒÚ¸): "; std::getline(std::cin >> std::ws, instr);
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ —Ñ–∞–º–∏–ª–∏—é(–∏–ª–∏ —á–∞—Å—Ç—å): "; std::getline(std::cin >> std::ws, instr);
 
     if (mode == 2) {
-        std::cout << "¬‚Â‰ËÚÂ ÚËÔ Ò‡ÏÓÎ∏Ú‡(ËÎË ˜‡ÒÚ¸): "; std::getline(std::cin >> std::ws, type);
+        std::cout << "–í–≤–µ–¥–∏—Ç–µ —Ç–∏–ø —Å–∞–º–æ–ª—ë—Ç–∞(–∏–ª–∏ —á–∞—Å—Ç—å): "; std::getline(std::cin >> std::ws, type);
     }
 
     for (const auto& plane : fleet) {
@@ -308,44 +308,44 @@ void FleetManager::search() {
     }
 
     if (searchList.empty())
-        std::cout << "œÓËÒÍ ÌÂ ‰‡Î ÂÁÛÎ¸Ú‡ÚÓ‚. œÂÂ˜ÂÌ¸ ÔÛÒÚ." << std::endl;
+        std::cout << "–ü–æ–∏—Å–∫ –Ω–µ –¥–∞–ª —Ä–µ–∑—É–ª—å—Ç–∞—Ç–æ–≤. –ü–µ—Ä–µ—á–µ–Ω—å –ø—É—Å—Ç." << std::endl;
     else {
-        std::cout << "Õ‡È‰ÂÌÓ Á‡ÔËÒÂÈ: " << searchList.size() << std::endl;
-        printAnyList(searchList, "œ≈–≈◊≈Õ‹ (ÂÁÎ¸Ú‡Ú˚ ÔÓËÒÍ‡)");
+        std::cout << "–ù–∞–π–¥–µ–Ω–æ –∑–∞–ø–∏—Å–µ–π: " << searchList.size() << std::endl;
+        printAnyList(searchList, "–ü–ï–†–ï–ß–ï–ù–¨ (—Ä–µ–∑–ª—å—Ç–∞—Ç—ã –ø–æ–∏—Å–∫–∞)");
     }
 }
 
 void FleetManager::showSearchList() {
-    printAnyList(searchList, "“≈ ”Ÿ»… œ≈–≈◊≈Õ‹");
+    printAnyList(searchList, "–¢–ï–ö–£–©–ò–ô –ü–ï–†–ï–ß–ï–ù–¨");
 }
 
 void FleetManager::sortSearchList() {
-    if (searchList.empty()) { std::cout << "œÂÂ˜ÂÌ¸ ÔÛÒÚ.\n"; return; }
+    if (searchList.empty()) { std::cout << "–ü–µ—Ä–µ—á–µ–Ω—å –ø—É—Å—Ç.\n"; return; }
 
     sort(searchList.begin(), searchList.end(), [](const Airplane& a, const Airplane& b) {
         return a.getYear() < b.getYear();
         });
 
-    std::cout << "œÂÂ˜ÂÌ¸ ÓÚÒÓÚËÓ‚‡Ì‡Ì ÔÓ „Ó‰Û ‚˚ÔÛÒÍ‡.\n";
+    std::cout << "–ü–µ—Ä–µ—á–µ–Ω—å –æ—Ç—Å–æ—Ä—Ç–∏—Ä–æ–≤–∞–Ω–∞–Ω –ø–æ –≥–æ–¥—É –≤—ã–ø—É—Å–∫–∞.\n";
     showSearchList();
 }
 
 void FleetManager::saveSearchList() {
-    if (searchList.empty()) { std::cout << "œÂÂ˜ÂÌ¸ ÔÛÒÚ." << std::endl; return; }
+    if (searchList.empty()) { std::cout << "–ü–µ—Ä–µ—á–µ–Ω—å –ø—É—Å—Ç." << std::endl; return; }
 
     std::string filename;
-    std::cout << "¬‚Â‰ËÚÂ ËÏˇ Ù‡ÈÎ‡ ‰Îˇ ÒÓı‡ÌÂÌËˇ ÓÚ˜∏Ú‡: ";
+    std::cout << "–í–≤–µ–¥–∏—Ç–µ –∏–º—è —Ñ–∞–π–ª–∞ –¥–ª—è —Å–æ—Ö—Ä–∞–Ω–µ–Ω–∏—è –æ—Ç—á—ë—Ç–∞: ";
     std::cin >> filename;
 
     std::ofstream fout(filename.c_str());
-    if (!fout.is_open()) { std::cout << "Œ¯Ï·Í‡: ÌÂ ÔÓÎÛ˜‡ÂÚÒˇ ÓÚÍ˚Ú¸ Ù‡ÈÎ.\n"; return; }
+    if (!fout.is_open()) { std::cout << "–û—à–º–±–∫–∞: –Ω–µ –ø–æ–ª—É—á–∞–µ—Ç—Å—è –æ—Ç–∫—Ä—ã—Ç—å —Ñ–∞–π–ª.\n"; return; }
 
-    fout << "Œ“◊®“ œŒ –≈«”À‹“¿“¿Ã œŒ»— ¿\n";
+    fout << "–û–¢–ß–Å–¢ –ü–û –†–ï–ó–£–õ–¨–¢–ê–¢–ê–ú –ü–û–ò–°–ö–ê\n";
     printHeader(fout);
     for (std::size_t i = 0; i < searchList.size(); ++i) {
         searchList[i].saveRow(fout, i + 1);
     }
     printSeparator(fout);
     fout.close();
-    std::cout << "œÂÂ˜ÂÌ¸ ÒÓı‡Ì∏Ì ‚ " << filename << std::endl;
+    std::cout << "–ü–µ—Ä–µ—á–µ–Ω—å —Å–æ—Ö—Ä–∞–Ω—ë–Ω –≤ " << filename << std::endl;
 }
